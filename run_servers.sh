@@ -1,5 +1,12 @@
 #!/bin/bash
 set -e
 
-python3 /app/backend/main.py &
-node /app/frontend/server.js &
+# Start backend
+cd /app/backend
+pip install -r requirements.txt
+python main.py &
+
+# Start frontend
+cd /app/frontend
+npm install
+npm run dev &
